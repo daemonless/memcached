@@ -1,0 +1,39 @@
+ARG BASE_VERSION=15.1
+FROM ghcr.io/daemonless/base:${BASE_VERSION}
+
+ARG FREEBSD_ARCH=amd64
+ARG PKG_NAME="memcached"
+ARG PACKAGES="${PKG_NAME}"
+
+LABEL org.opencontainers.image.title="{{ title }}" \
+      org.opencontainers.image.description="{{ description }}" \
+      org.opencontainers.image.source="{{ repo_url }}" \
+      org.opencontainers.image.url="{{ web_url }}" \
+      org.opencontainers.image.licenses="BSD-3-Clause" \
+      org.opencontainers.image.vendor="daemonless" \
+      org.opencontainers.image.authors="daemonless" \
+      io.daemonless.category="{{ category }}" \
+{%- if ports %}
+      io.daemonless.port="{{ ports[0].port }}" \
+{%- endif %}
+      io.daemonless.arch="${FREEBSD_ARCH}" \
+      io.daemonless.pkg-source="pkg" \
+      io.daemonless.packages="${PACKAGES}" \
+      io.daemonless.pkg-name="${PKG_NAME}"
+
+RUN pkg update && \
+    pkg install -y ${PACKAGES} && \
+    mkdir -p /app /config && \
+    pkg query '%v' ${PKG_NAME} > /app/version && \
+    chown -R bsd:bsd /config && \
+    pkg clean -ay && \
+    rm -rf /var/cache/pkg/* /var/db/pkg/repos/*
+
+COPY root/ /
+RUN chmod +x /etc/services.d/memcached/run /healthz
+
+ENV MEMCACHED_ARGS=""
+
+{%- if ports %}
+EXPOSE {{ ports | map(attribute='port') | join(' ') }}
+{%- endif %}

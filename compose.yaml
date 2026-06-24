@@ -1,0 +1,39 @@
+name: memcached
+
+x-daemonless:
+  title: "Memcached"
+  icon: ":material-memory:"
+  category: "Databases"
+  description: "High-performance distributed memory object caching system for speeding up dynamic web applications by reducing database load."
+  upstream_url: "https://github.com/memcached/memcached"
+  web_url: "https://memcached.org/"
+  freshports_url: "https://www.freshports.org/databases/memcached/"
+  user: "bsd"
+  mlock: false
+  upstream_binary: false
+  community: "Discord:https://discord.gg/Kb9tkhecZT"
+  appjail: true
+
+  docs:
+    env:
+      PUID: "User ID for the application process"
+      PGID: "Group ID for the application process"
+      TZ: "Timezone for the container"
+      MEMCACHED_ARGS: "Additional memcached command-line arguments"
+    ports:
+      11211: "Memcached TCP port"
+
+services:
+  memcached:
+    image: ghcr.io/daemonless/memcached:latest
+    container_name: memcached
+    restart: unless-stopped
+
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=UTC
+      - MEMCACHED_ARGS=
+
+    ports:
+      - "11211:11211"

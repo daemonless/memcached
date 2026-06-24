@@ -1,0 +1,4 @@
+#!/bin/sh
+# Daemonless healthcheck for Memcached
+
+nc -z 127.0.0.1 11211 >/dev/null 2>&1

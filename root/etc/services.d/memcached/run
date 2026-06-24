@@ -1,0 +1,10 @@
+#!/bin/sh
+# Memcached s6 service
+
+set -e
+
+# Match upstream container behavior closely: run memcached in the foreground.
+# We bind to all interfaces so the container port is reachable from Podman/AppJail.
+# Intentional word splitting: MEMCACHED_ARGS is an escape hatch for memcached flags.
+# shellcheck disable=SC2086
+exec s6-setuidgid bsd /usr/local/bin/memcached -l 0.0.0.0 ${MEMCACHED_ARGS}
