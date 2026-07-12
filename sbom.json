@@ -1,11 +1,11 @@
 {
-  "generated": "2026-07-10T22:24:14Z",
+  "generated": "2026-07-12T20:41:29Z",
   "image": "memcached",
   "tags": {
     "pkg": {
-      "app_version": "1.6.41",
+      "app_version": "1.6.43",
       "arch": "amd64",
-      "generated": "2026-07-10T22:21:33Z",
+      "generated": "2026-07-12T20:32:12Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -139,7 +139,7 @@
           },
           {
             "name": "cyrus-sasl",
-            "version": "2.1.28_5"
+            "version": "2.1.28_6"
           },
           {
             "name": "execline",
@@ -155,7 +155,7 @@
           },
           {
             "name": "memcached",
-            "version": "1.6.41"
+            "version": "1.6.43"
           },
           {
             "name": "oniguruma",
@@ -163,7 +163,7 @@
           },
           {
             "name": "pkg",
-            "version": "2.6.2_1"
+            "version": "2.7.5"
           },
           {
             "name": "s6",
@@ -199,7 +199,7 @@
     "pkg-latest": {
       "app_version": "1.6.44",
       "arch": "amd64",
-      "generated": "2026-07-10T22:21:56Z",
+      "generated": "2026-07-12T20:28:37Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
