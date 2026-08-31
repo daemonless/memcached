@@ -42,8 +42,11 @@ services:
       - MEMCACHED_ARGS=  # Additional memcached command-line arguments
     ports:
       - "11211:11211"
-    restart: unless-stopped
+    # always (not unless-stopped) so FreeBSD's podman rc.d auto-starts it at boot
+    restart: always
 ```
+
+Save as `compose.yaml`, then run `podman-compose up -d`.
 
 ### AppJail Director
 **.env**:
@@ -91,6 +94,9 @@ ARG tag=latest
 OPTION overwrite=force
 OPTION from=ghcr.io/daemonless/memcached:${tag}
 ```
+
+Save the files above, then run `appjail-director up`.
+
 **Note**: Exposing ports in AppJail means that your service can be reached from remote hosts. If that is not your intention, do not expose the ports and communicate with the service using the IPv4 address assigned by the virtual network.
 
 ### Podman CLI
@@ -104,6 +110,8 @@ podman run -d --name memcached \
   -e MEMCACHED_ARGS= \
   ghcr.io/daemonless/memcached:latest
 ```
+
+Save as `run.sh`, then run `sh run.sh`.
 
 ### AppJail
 
@@ -120,7 +128,39 @@ appjail oci run -Pd \
   -e MEMCACHED_ARGS= \
   ghcr.io/daemonless/memcached:latest memcached
 ```
+
+Save as `run.sh`, then run `sh run.sh`.
+
 **Note**: Exposing ports in AppJail means that your service can be reached from remote hosts. If that is not your intention, do not expose the ports and communicate with the service using the IPv4 address assigned by the virtual network.
+
+### Bastille
+
+> [!WARNING]
+> Bastille's OCI support is **experimental**. It requires `buildah`, shares the host network stack (`inherit`), and persists image-declared volumes under `--data-path`.
+
+```yaml
+services:
+  memcached:
+    image: "ghcr.io/daemonless/memcached:latest"
+    container_name: memcached
+    network_mode: host  # jail shares host networking
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=UTC
+      - MEMCACHED_ARGS=
+```
+
+Save as `podman-compose.yml`, then run `bastille up`. Or via CLI:
+
+```bash
+bastille create -O \
+  --env PUID=1000 \
+  --env PGID=1000 \
+  --env TZ=UTC \
+  --env MEMCACHED_ARGS= \
+  memcached ghcr.io/daemonless/memcached:latest inherit
+```
 
 ### Ansible
 
@@ -139,6 +179,8 @@ appjail oci run -Pd \
     ports:
       - "11211:11211"
 ```
+
+Save as `memcached-deploy.yaml`, then run `ansible-playbook memcached-deploy.yaml`.
 
 ## Parameters
 
