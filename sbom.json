@@ -1,11 +1,11 @@
 {
-  "generated": "2026-08-31T22:10:13Z",
+  "generated": "2026-09-12T10:12:45Z",
   "image": "memcached",
   "tags": {
     "pkg": {
       "app_version": "1.6.43",
       "arch": "amd64",
-      "generated": "2026-08-31T22:08:01Z",
+      "generated": "2026-09-12T10:12:18Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -329,7 +329,7 @@
     "pkg-latest": {
       "app_version": "1.6.45",
       "arch": "amd64",
-      "generated": "2026-08-31T22:09:39Z",
+      "generated": "2026-09-12T10:11:33Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
