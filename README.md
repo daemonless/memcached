@@ -7,6 +7,7 @@ Source: dbuild templates
 
 [![Build Status](https://img.shields.io/github/actions/workflow/status/daemonless/memcached/build.yaml?style=flat-square&label=Build&color=green)](https://github.com/daemonless/memcached/actions)
 [![Last Commit](https://img.shields.io/github/last-commit/daemonless/memcached?style=flat-square&label=Last+Commit&color=blue)](https://github.com/daemonless/memcached/commits)
+[![OCI Pulls](https://img.shields.io/docker/pulls/daemonless/memcached?style=flat-square&label=OCI+Pulls&color=blue)](https://hub.docker.com/r/daemonless/memcached)
 
 High-performance distributed memory object caching system for speeding up dynamic web applications by reducing database load.
 
