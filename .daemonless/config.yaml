@@ -3,6 +3,9 @@ cit:
   port: 11211
 
 build:
+  architectures:
+    - amd64
+    - aarch64
   variants:
     - tag: pkg
       containerfile: Containerfile.pkg
