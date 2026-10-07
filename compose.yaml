@@ -19,7 +19,9 @@ x-daemonless:
       PUID: "User ID for the application process"
       PGID: "Group ID for the application process"
       TZ: "Timezone for the container"
-      MEMCACHED_ARGS: "Additional memcached command-line arguments"
+      MEMCACHED_ARGS:
+        desc: "Extra memcached arguments, e.g. -m 256 -c 2048 (blank for defaults)"
+        optional: true
     ports:
       11211: "Memcached TCP port"
 
