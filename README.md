@@ -40,7 +40,7 @@ services:
       - PUID=1000  # User ID for the application process
       - PGID=1000  # Group ID for the application process
       - TZ=UTC  # Timezone for the container
-      - MEMCACHED_ARGS=  # Additional memcached command-line arguments
+      - MEMCACHED_ARGS=  # Extra memcached arguments, e.g. -m 256 -c 2048 (blank for defaults)
     ports:
       - "11211:11211"
     # always (not unless-stopped) so FreeBSD's podman rc.d auto-starts it at boot
@@ -105,45 +105,6 @@ Save the files above, then run `appjail-director up`.
 >
 > To avoid exposing ports, just remove the `expose` option in your `appjail-director.yml` or from your command-line arguments.
 
-### Podman CLI
-
-```bash
-podman run -d --name memcached \
-  -p 11211:11211 \
-  -e PUID=1000 \
-  -e PGID=1000 \
-  -e TZ=UTC \
-  -e MEMCACHED_ARGS= \
-  ghcr.io/daemonless/memcached:latest
-```
-
-Save as `run.sh`, then run `sh run.sh`.
-
-### AppJail
-
-
-```bash
-appjail oci run -Pd \
-  -o overwrite=force \
-  -o container="args:--pull" \
-  -o virtualnet=":<random> default" \
-  -o nat \
-  -o expose="11211:11211 proto:tcp" \
-  -e PUID=1000 \
-  -e PGID=1000 \
-  -e TZ=UTC \
-  -e MEMCACHED_ARGS= \
-  ghcr.io/daemonless/memcached:latest memcached
-```
-
-Save the files above, then run `sh run.sh`.
-
-
-> [!WARNING]
-> Exposing ports in AppJail means that your service can be reached from remote hosts. If that is not your intention, do not expose the ports and communicate with the service using the jail's IPv4 address or hostname assigned by the virtual network.
->
-> To avoid exposing ports, just remove the `expose` option in your `appjail-director.yml` or from your command-line arguments.
-
 ### Bastille
 
 > [!WARNING]
@@ -163,36 +124,7 @@ services:
       - MEMCACHED_ARGS=
 ```
 
-Save as `bastille-compose.yml`, then run `bastille up`. Or via CLI:
-
-```bash
-bastille create -O \
-  --env PUID=1000 \
-  --env PGID=1000 \
-  --env TZ=UTC \
-  --env MEMCACHED_ARGS= \
-  memcached ghcr.io/daemonless/memcached:latest inherit
-```
-
-### Ansible
-
-```yaml
-- name: Deploy memcached
-  containers.podman.podman_container:
-    name: memcached
-    image: "ghcr.io/daemonless/memcached:latest"
-    state: started
-    restart_policy: always
-    env:
-      PUID: "1000"
-      PGID: "1000"
-      TZ: "UTC"
-      MEMCACHED_ARGS: ""
-    ports:
-      - "11211:11211"
-```
-
-Save as `memcached-deploy.yaml`, then run `ansible-playbook memcached-deploy.yaml`.
+Save as `bastille-compose.yml`, then run `bastille up`.
 
 ## Parameters
 
@@ -203,7 +135,7 @@ Save as `memcached-deploy.yaml`, then run `ansible-playbook memcached-deploy.yam
 | `PUID` | `1000` | User ID for the application process |
 | `PGID` | `1000` | Group ID for the application process |
 | `TZ` | `UTC` | Timezone for the container |
-| `MEMCACHED_ARGS` | `` | Additional memcached command-line arguments |
+| `MEMCACHED_ARGS` | `` | Extra memcached arguments, e.g. -m 256 -c 2048 (blank for defaults) |
 
 ### Ports
 
