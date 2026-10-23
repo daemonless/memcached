@@ -1,11 +1,11 @@
 {
-  "generated": "2026-10-11T07:36:53Z",
+  "generated": "2026-10-23T08:02:46Z",
   "image": "memcached",
   "tags": {
     "pkg-amd64": {
       "app_version": "1.6.45",
       "arch": "amd64",
-      "generated": "2026-10-11T07:36:21Z",
+      "generated": "2026-10-23T08:02:07Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -189,7 +189,7 @@
               "BSD2CLAUSE"
             ],
             "name": "FreeBSD-runtime",
-            "version": "15.1p4"
+            "version": "15.1p5"
           },
           {
             "licenses": [
@@ -238,7 +238,7 @@
               "PD"
             ],
             "name": "FreeBSD-zoneinfo",
-            "version": "15.1p4"
+            "version": "15.1p5"
           },
           {
             "licenses": [
@@ -252,7 +252,7 @@
               "MPL20"
             ],
             "name": "ca_root_nss",
-            "version": "3.130"
+            "version": "3.131"
           },
           {
             "licenses": [
@@ -260,13 +260,6 @@
             ],
             "name": "cyrus-sasl",
             "version": "2.1.28_6"
-          },
-          {
-            "licenses": [
-              "ISCL"
-            ],
-            "name": "execline",
-            "version": "2.9.8.1"
           },
           {
             "licenses": [
@@ -302,20 +295,6 @@
             ],
             "name": "pkg",
             "version": "2.8.4"
-          },
-          {
-            "licenses": [
-              "ISCL"
-            ],
-            "name": "s6",
-            "version": "2.14.0.1"
-          },
-          {
-            "licenses": [
-              "ISCL"
-            ],
-            "name": "skalibs",
-            "version": "2.14.5.1"
           }
         ],
         "go": [],
@@ -329,7 +308,7 @@
       "source": "pkg",
       "summary": {
         "dotnet": 0,
-        "freebsd": 44,
+        "freebsd": 41,
         "go": 0,
         "java": 0,
         "node": 0,
@@ -337,13 +316,13 @@
         "python": 0,
         "ruby": 0,
         "rust": 0,
-        "total": 44
+        "total": 41
       }
     },
     "pkg-latest-amd64": {
       "app_version": "1.6.45",
       "arch": "amd64",
-      "generated": "2026-10-11T07:36:18Z",
+      "generated": "2026-10-23T07:59:39Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -527,7 +506,7 @@
               "BSD2CLAUSE"
             ],
             "name": "FreeBSD-runtime",
-            "version": "15.1p4"
+            "version": "15.1p5"
           },
           {
             "licenses": [
@@ -576,7 +555,7 @@
               "PD"
             ],
             "name": "FreeBSD-zoneinfo",
-            "version": "15.1p4"
+            "version": "15.1p5"
           },
           {
             "licenses": [
@@ -590,7 +569,7 @@
               "MPL20"
             ],
             "name": "ca_root_nss",
-            "version": "3.130"
+            "version": "3.131"
           },
           {
             "licenses": [
@@ -598,13 +577,6 @@
             ],
             "name": "cyrus-sasl",
             "version": "2.1.28_6"
-          },
-          {
-            "licenses": [
-              "ISCL"
-            ],
-            "name": "execline",
-            "version": "2.9.8.1"
           },
           {
             "licenses": [
@@ -640,20 +612,6 @@
             ],
             "name": "pkg",
             "version": "2.8.4"
-          },
-          {
-            "licenses": [
-              "ISCL"
-            ],
-            "name": "s6",
-            "version": "2.14.0.1"
-          },
-          {
-            "licenses": [
-              "ISCL"
-            ],
-            "name": "skalibs",
-            "version": "2.14.5.1"
           }
         ],
         "go": [],
@@ -667,7 +625,7 @@
       "source": "pkg",
       "summary": {
         "dotnet": 0,
-        "freebsd": 44,
+        "freebsd": 41,
         "go": 0,
         "java": 0,
         "node": 0,
@@ -675,7 +633,7 @@
         "python": 0,
         "ruby": 0,
         "rust": 0,
-        "total": 44
+        "total": 41
       }
     }
   }
