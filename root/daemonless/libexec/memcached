@@ -1,5 +1,5 @@
 #!/bin/sh
-# Memcached s6 service
+# Start memcached; /init has already dropped to the run user.
 
 set -e
 
@@ -7,4 +7,4 @@ set -e
 # We bind to all interfaces so the container port is reachable from Podman/AppJail.
 # Intentional word splitting: MEMCACHED_ARGS is an escape hatch for memcached flags.
 # shellcheck disable=SC2086
-exec s6-setuidgid bsd /usr/local/bin/memcached -l 0.0.0.0 ${MEMCACHED_ARGS}
+exec /usr/local/bin/memcached -l 0.0.0.0 ${MEMCACHED_ARGS}

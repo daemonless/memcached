@@ -1,5 +1,5 @@
 ARG BASE_VERSION=15.1
-FROM ghcr.io/daemonless/base:${BASE_VERSION}
+FROM ghcr.io/daemonless/base-exec:${BASE_VERSION}
 
 ARG FREEBSD_ARCH=amd64
 ARG PKG_NAME="memcached"
@@ -30,7 +30,10 @@ RUN pkg update && \
     rm -rf /var/cache/pkg/* /var/db/pkg/repos/*
 
 COPY root/ /
-RUN chmod +x /etc/services.d/memcached/run /healthz
+RUN chmod +x /healthz
+RUN chmod +x /daemonless/libexec/memcached
+
+CMD ["/daemonless/libexec/memcached"]
 
 ENV MEMCACHED_ARGS=""
 
