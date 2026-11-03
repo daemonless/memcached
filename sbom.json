@@ -1,11 +1,11 @@
 {
-  "generated": "2026-10-23T08:02:46Z",
+  "generated": "2026-11-03T11:58:13Z",
   "image": "memcached",
   "tags": {
     "pkg-amd64": {
       "app_version": "1.6.45",
       "arch": "amd64",
-      "generated": "2026-10-23T08:02:07Z",
+      "generated": "2026-11-03T11:57:43Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -189,7 +189,7 @@
               "BSD2CLAUSE"
             ],
             "name": "FreeBSD-runtime",
-            "version": "15.1p5"
+            "version": "15.1p6"
           },
           {
             "licenses": [
@@ -252,7 +252,7 @@
               "MPL20"
             ],
             "name": "ca_root_nss",
-            "version": "3.131"
+            "version": "3.132"
           },
           {
             "licenses": [
@@ -322,7 +322,7 @@
     "pkg-latest-amd64": {
       "app_version": "1.6.45",
       "arch": "amd64",
-      "generated": "2026-10-23T07:59:39Z",
+      "generated": "2026-11-03T11:57:39Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -506,7 +506,7 @@
               "BSD2CLAUSE"
             ],
             "name": "FreeBSD-runtime",
-            "version": "15.1p5"
+            "version": "15.1p6"
           },
           {
             "licenses": [
@@ -569,7 +569,7 @@
               "MPL20"
             ],
             "name": "ca_root_nss",
-            "version": "3.131"
+            "version": "3.132"
           },
           {
             "licenses": [
