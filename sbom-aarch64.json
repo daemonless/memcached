@@ -1,11 +1,11 @@
 {
-  "generated": "2026-10-23T09:45:49Z",
+  "generated": "2026-11-03T12:37:13Z",
   "image": "memcached",
   "tags": {
     "pkg-aarch64": {
       "app_version": "1.6.45",
       "arch": "aarch64",
-      "generated": "2026-10-23T09:44:51Z",
+      "generated": "2026-11-03T12:35:44Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -189,7 +189,7 @@
               "BSD2CLAUSE"
             ],
             "name": "FreeBSD-runtime",
-            "version": "15.1p5"
+            "version": "15.1p6"
           },
           {
             "licenses": [
@@ -322,7 +322,7 @@
     "pkg-latest-aarch64": {
       "app_version": "1.6.45",
       "arch": "aarch64",
-      "generated": "2026-10-23T09:44:54Z",
+      "generated": "2026-11-03T12:35:49Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -506,7 +506,7 @@
               "BSD2CLAUSE"
             ],
             "name": "FreeBSD-runtime",
-            "version": "15.1p5"
+            "version": "15.1p6"
           },
           {
             "licenses": [
