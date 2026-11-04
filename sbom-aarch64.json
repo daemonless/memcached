@@ -1,11 +1,11 @@
 {
-  "generated": "2026-11-03T12:37:13Z",
+  "generated": "2026-11-04T13:54:09Z",
   "image": "memcached",
   "tags": {
     "pkg-aarch64": {
       "app_version": "1.6.45",
       "arch": "aarch64",
-      "generated": "2026-11-03T12:35:44Z",
+      "generated": "2026-11-04T13:52:42Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -252,7 +252,7 @@
               "MPL20"
             ],
             "name": "ca_root_nss",
-            "version": "3.131"
+            "version": "3.132"
           },
           {
             "licenses": [
@@ -322,7 +322,7 @@
     "pkg-latest-aarch64": {
       "app_version": "1.6.45",
       "arch": "aarch64",
-      "generated": "2026-11-03T12:35:49Z",
+      "generated": "2026-11-04T13:52:47Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -569,7 +569,7 @@
               "MPL20"
             ],
             "name": "ca_root_nss",
-            "version": "3.131"
+            "version": "3.132"
           },
           {
             "licenses": [
